@@ -74,3 +74,16 @@ end
 ```
 
 > You can even reopen classes that are defined in the Ruby standard library and add methods to them. This is a powerful technique, but it can be dangerous. If you add a method to a class that already exists, you might break code that depends on the original definition of the class.
+
+##### Inheritance
+
+```ruby
+class Book; end
+
+class TextBook < Book; end
+
+TextBook.superclass # Book
+Book.superclass # Object
+Object.superclass # BasicObject
+BasicObject.superclass # nil
+```
