@@ -87,3 +87,28 @@ Book.superclass # Object
 Object.superclass # BasicObject
 BasicObject.superclass # nil
 ```
+
+Class variables are shared between the class and all subclasses.
+
+```ruby
+class Book
+    @@book_count = 0
+
+    def initialize
+        @@book_count += 1
+    end
+
+    def self.book_count
+        @@book_count
+    end
+end
+
+class TextBook < Book; end
+
+Book.new
+Book.new
+TextBook.new
+
+Book.book_count # 3
+TextBook.book_count # 3
+```

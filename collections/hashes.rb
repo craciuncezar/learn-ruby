@@ -22,3 +22,16 @@ data = {
 data[:mcu][0][:actors][1] # => "Gwyneth Paltrow"
 data.dig(:mcu, 0, :actors, 1) # => "Gwyneth Paltrow"
 # The big advantage of dig is that if data is not there it returns nil instead of raising an exception
+
+# Destructuring
+a = {
+  lol: 'wow',
+  bla: 23423,
+  itaaa: {
+    opa: false
+  }
+}
+
+a => {lol:, bla:, itaaa:}
+
+puts "Destructing #{lol} #{bla} #{itaaa[:opa]}"

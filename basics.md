@@ -210,3 +210,40 @@ a << " world" # Raises an error
 ```
 
 Numbers and symbols are immutable by default.
+
+#### Command expressions
+
+If you use backticks or %x, Ruby executes the string as a shell command and returns the output as a string.
+
+```ruby
+`date` # "Mon  5 Jul 2021 11:00:00 AM EEST\n"
+```
+
+#### Nullish coalescing operator
+
+Ruby doesn't have a nullish coalescing operator but you can use the `||` operator.
+
+```ruby
+variable1 = nil
+variable2 = "Hello, world!"
+
+result = variable1 || variable2
+puts result # "Hello, world!"
+```
+
+#### Optional chaining
+
+You can use the safe navigation operator `&.` to avoid nil errors.
+
+```ruby
+person = {
+  name: 'John',
+  address: {
+    city: 'New York',
+    postal_code: '10001'
+  }
+}
+
+postal_code = person[:address]&.fetch(:postal_code, nil)
+puts postal_code # Output: 10001
+```
