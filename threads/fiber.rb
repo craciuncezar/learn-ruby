@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+words = Fiber.new do
+  File.foreach('./basics.md', encoding: 'utf-8') do |line|
+    line.scan(/\w+/) do |word|
+      Fiber.yield word.downcase
+    end
+  end
+end
+
+counts = Hash.new(0)
+while (word = words.resume)
+  counts[word] += 1
+end
+counts.keys.sort.each { |k| print "#{k}:#{counts[k]} " }
