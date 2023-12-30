@@ -34,7 +34,7 @@ local_variable = "I'm a local variable" # Convention is to use lowercase letters
 
 > FYI: Global variables and class variables are rarely used in Ruby.
 
-Class names, module names, and other constants must start with an uppercase letter. Method names may end with the characters ?, !, and =.
+Class names, module names, and other constants must start with an uppercase letter. Method names may end with the characters ?(predicate or boolean), !(dangerous as in it modifies the receiver or raises an exception), and =(setter).
 
 ### Arrays
 
